@@ -1,0 +1,391 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  
+  /* 지구와 자연 느낌의 색상 팔레트 */
+  --earth-blue: #2E86AB;
+  --ocean-blue: #4A90E2;
+  --forest-green: #5B9279;
+  --nature-green: #7FB069;
+  --earth-brown: #8B6F47;
+  --sky-blue: #A8D5E2;
+  --light-green: #C4E4D4;
+  --cream: #F5F1E8;
+  --white: #FFFFFF;
+  --text-dark: #2C3E50;
+  --text-light: #5A6C7D;
+  --success-green: #4CAF50;
+  --error-red: #F44336;
+  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--sky-blue) 0%, var(--light-green) 50%, var(--cream) 100%);
+  background-attachment: fixed;
+  color: var(--text-dark);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--earth-blue);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.nature-decoration {
+  width: 200px;
+  height: 120px;
+  margin: 1rem auto;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.mountain-range {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.mountain {
+  position: absolute;
+  bottom: 0;
+  border-left: solid transparent;
+  border-right: solid transparent;
+  border-bottom: solid;
+}
+
+.mountain-1 {
+  width: 0;
+  height: 0;
+  left: 10%;
+  border-left-width: 30px;
+  border-right-width: 30px;
+  border-bottom-width: 60px;
+  border-bottom-color: var(--forest-green);
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  z-index: 3;
+}
+
+.mountain-2 {
+  width: 0;
+  height: 0;
+  left: 30%;
+  border-left-width: 40px;
+  border-right-width: 40px;
+  border-bottom-width: 80px;
+  border-bottom-color: var(--nature-green);
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  z-index: 4;
+}
+
+.mountain-3 {
+  width: 0;
+  height: 0;
+  left: 50%;
+  border-left-width: 35px;
+  border-right-width: 35px;
+  border-bottom-width: 70px;
+  border-bottom-color: #4a7c59;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  z-index: 2;
+}
+
+.mountain-4 {
+  width: 0;
+  height: 0;
+  right: 15%;
+  border-left-width: 25px;
+  border-right-width: 25px;
+  border-bottom-width: 50px;
+  border-bottom-color: var(--forest-green);
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  z-index: 1;
+}
+
+/* 산에 눈 효과 추가 */
+.mountain-1::before,
+.mountain-2::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid rgba(255, 255, 255, 0.9);
+}
+
+.mountain-2::before {
+  border-left-width: 10px;
+  border-right-width: 10px;
+  border-bottom-width: 15px;
+  top: -15px;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  opacity: 0.8;
+  animation: drift 8s ease-in-out infinite;
+}
+
+.cloud:before,
+.cloud:after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+}
+
+.cloud-1 {
+  width: 30px;
+  height: 20px;
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.cloud-1:before {
+  width: 25px;
+  height: 25px;
+  top: -10px;
+  left: 5px;
+}
+
+.cloud-1:after {
+  width: 20px;
+  height: 20px;
+  top: -5px;
+  right: 5px;
+}
+
+.cloud-2 {
+  width: 25px;
+  height: 18px;
+  top: 15%;
+  right: 25%;
+  animation-delay: 2s;
+}
+
+.cloud-2:before {
+  width: 20px;
+  height: 20px;
+  top: -8px;
+  left: 3px;
+}
+
+.cloud-2:after {
+  width: 18px;
+  height: 18px;
+  top: -4px;
+  right: 3px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.form-wrapper {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.question-section {
+  background: linear-gradient(135deg, var(--light-green) 0%, var(--sky-blue) 100%);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid var(--forest-green);
+}
+
+.question-title {
+  font-size: 1.5rem;
+  color: var(--earth-blue);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.question-content {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  text-align: center;
+}
+
+.geography-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--earth-blue);
+  margin-left: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 1rem;
+  border: 2px solid var(--sky-blue);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: var(--cream);
+  color: var(--text-dark);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--forest-green);
+  box-shadow: 0 0 0 3px rgba(91, 146, 121, 0.2);
+  background-color: var(--white);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--forest-green) 0%, var(--nature-green) 100%);
+  color: var(--white);
+  border: none;
+  padding: 1.2rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(91, 146, 121, 0.3);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(91, 146, 121, 0.4);
+  background: linear-gradient(135deg, var(--nature-green) 0%, var(--forest-green) 100%);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  font-size: 1.5rem;
+}
+
+.message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.message.success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success-green);
+  border: 2px solid var(--success-green);
+}
+
+.message.error {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: var(--error-red);
+  border: 2px solid var(--error-red);
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .form-wrapper {
+    padding: 1.5rem;
+  }
+  
+  .question-section {
+    padding: 1.5rem;
+  }
+  
+  .submit-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  /* 다크 모드 지원은 선택사항이지만, 현재는 라이트 테마로 유지 */
+}
